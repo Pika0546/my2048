@@ -4,7 +4,7 @@ const nCell = nCol*nRow
 
 
 var  board = document.getElementById("game")
-console.log(board);
+
 function cell(sc){
     this.score = sc;
     this.content = 0;
@@ -73,18 +73,20 @@ function init() {
     createRandomCell();
     
 }
+
 function draw() {
     for(var i = 0; i < nCell; i++){
         cells[i].draw();
     }
 }
+
 function createRandomCell() {
     var index = Math.floor((Math.random()*nCell));
     if(cells[index].score == 0)
         cells[index].score = (Math.floor((Math.random()*2)) + 1) * 2;
     else
         createRandomCell();
-    console.log("1123 ");
+  
 }
 
 
@@ -268,7 +270,7 @@ function checkColumn() {
 }
 function gameOver(){
     if(checkColumn() && checkRow() && isFull()){
-        console.log("lose");
+        
         document.getElementById("restart").style.display = "block";
         document.getElementById("game-over").style.display = "block";
     }
@@ -288,6 +290,19 @@ function victory() {
    
     
 }
+
+document.addEventListener("keydown",function (e) {
+    e.preventDefault();
+    if(e.keyCode === 37)
+        floatLeft();
+    else if(e.keyCode === 39)
+        floatRight();
+    else if(e.keyCode === 40){
+        floatDown()
+    }else if(e.keyCode === 38)
+        floatUp()
+
+})
 
 
 function game() {

@@ -10,6 +10,9 @@ body{
     padding: 0;
     font-family: consolas;
     background-color: rgb(238, 238, 238);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -19,7 +22,7 @@ h1{
     color:rgb(247, 110, 235);
 }
 .game-container{
-    margin-left: 200px;
+    
     text-align: center;
     position: relative;
     width: 300px;
